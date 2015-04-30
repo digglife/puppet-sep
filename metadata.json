@@ -1,0 +1,14 @@
+{
+  "name": "digglife-sep",
+  "version": "0.1.0",
+  "author": "digglife",
+  "summary": "Puppet Module for managing Symantec Endpoint Protection Client.",
+  "license": "MIT",
+  "source": "https://github.com/digglife/puppet-sep",
+  "project_page": "https://github.com/digglife/puppet-sep",
+  "issues_url": "https://github.com/digglife/puppet-sep/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
