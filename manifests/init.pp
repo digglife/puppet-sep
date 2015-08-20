@@ -26,7 +26,7 @@
 #
 # === Authors
 #
-# Zhu Sheng Li <zshengli@cn.ibm.com>
+# Zhu Sheng Li <digglife@gmail.com>
 #
 # === Copyright
 #
@@ -44,6 +44,15 @@ class sep (
     $sep_package = "${source}\\sep32.exe"
   }
 
+  #Actually Puppet is unable to manipulate sepmasterservice
+  #if the tamper protection is checked(default).
+  #This behavior could be changed from SEPM.
+  service { 'SepMasterService':
+    ensure => 'running',
+    enable => true,
+    require => Package['sep'],
+  }
+
   package { 'sep':
     name   => 'Symantec Endpoint Protection',
     ensure => installed,
@@ -51,23 +60,20 @@ class sep (
   }
 
   if $deploy_sylink and $sepm_ip and $::sep {
-    if $::sep[sepm] != $sepm_ip {
-      notify {"sepm ip is different from settings":}
+    if $::sep[sepm] != $sepm_ip or !$::sep[online]  {
       file { 'sylinkfile':
         ensure => present,
         path => "C:\\Windows\\Temp\\sylink.xml",
-        source => 'puppet:///modules/sep/sylink.xml'
+        source => 'puppet:///modules/sep/sylink.xml',
+        source_permissions => ignore,
       }
 
       exec { 'update_sepm':
         command => "\"${::sep[path]}\\sylinkdrop.exe\" -silent C:\\Windows\\Temp\\sylink.xml",
         subscribe => File['sylinkfile'],
+        refreshonly => true,
+        notify => Service['SepMasterService'],
       }
     }
-  }
-
-  reboot { 'after':
-    apply => finished,
-    subscribe => Package['sep'],
   }
 }
