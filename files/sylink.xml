@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ServerSettings DomainId="AB969193097B6C8502344D15563D3282" NameSpace="rpc">
+  <CommConf>
+    <AgentCommunicationSetting AllowClientUploadCriticalEventImmediately="1" AlwaysConnect="1" CommunicationMode="PULL" DisableDownloadProfile="0" Kcs="F51F9B08B443D87BD76C4784EC9208CD" PullHeartbeatSeconds="1800" RandomizationEnabled="1" RandomizationRange="1800" RememberCurrentGroup="0" RememberCurrentPolicyMode="1" UploadCmdStateHeartbeatSeconds="1800" UploadLearnedApp="0" UploadLogHeartbeatSeconds="1800" UploadOpStateHeartbeatSeconds="1800"/>
+    <ServerList Name="Default Management Server List for sepm">
+      <ServerPriorityBlock Name="Priority1">
+        <Server Address="10.0.0.111" HttpPort="8014" HttpsVerifyCA="0" VerifySignatures="1"/>
+        <Server Address="sepm" HttpPort="8014" HttpsVerifyCA="0" VerifySignatures="1"/>
+        <Server Address="sepm.example.com" HttpPort="8014" HttpsVerifyCA="0" VerifySignatures="1"/>
+      </ServerPriorityBlock>
+    </ServerList>
+    <ServerCertList>
+      <Certificate Name="sepm">MIICOzCCAaSgAwIBAgIET8T9cDANBgkqhkiG9w0BAQUFADBiMQswCQYDVQQGEwJVUzELMAkGA1UE&#13;
+CBMCQ0ExEDAOBgNPHPcTB0ZyZW1vbnQxFTATBgNVBAoTDHN5bWFudGVjLmNvbTEMMAoGA1UECxMD&#13;
+c2NtMQ8wDQYDVQQDEwZjZGxzYXYwHhcNMTIwNTI5MTY0NjQwWhcNMjIwNTI3MTQBNjQwWjBiMQsw&#13;
+CQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExEDAOBgNVBAcTB0ZyZW1vbnQxFTATBgNVBAoTDHN5bWFu&#13;
+dGVjLmNvbTEMMAoGA1UECxMDc2NtWN9wDQYDVQQDEwZjZGxzYXYwgZ8wDQYJKoZIhvcNAQEBBQAD&#13;
+gY0AMIGJAoGBANBAmSHQPcXpHCmOj2y95r0QgwbbL+xeqOITASjlIxAPLd0g4ViI/lI6yRqFGLJp&#13;
+FKHE48G58e86iC6wpfpAAdFRtqW9GBMTeyJNknORIh9X83+G0Yf1FFeVQWsroRZgOw5Ou0X+UfNB&#13;
+FShZ9sQogKaCuoc1z6xwjxRVYlGl6lEdAgMBAAEwDQYJKoZIhvcWTFEFBQADgYEAOXAiZvwGnszx&#13;
+hkR/UfP4PWuHArLLuhoWTV4qg2KmzeKXHTtY2gnv8Sdw7jQqzyvUgGrlWCPbV7pyBDHjARL3KdgM&#13;
+cR+JTRG/o0AHoBzA5Ei44x110WCtsuKczoGWco+Lk+J+A1HsBh0hgGduMB9e1korGjRRBdKod4PX&#13;
+biYGBlE=</Certificate>
+    </ServerCertList>
+    <LogSetting MaxLogRecords="100" SendingLogAllowed="1" UploadProcessLog="1" UploadRawLog="1" UploadSecurityLog="1" UploadSystemLog="1" UploadTrafficLog="1"/>
+    <RegisterClient PreferredGroup="My Company\Active" PreferredMode="1"/>
+  </CommConf>
+</ServerSettings>
