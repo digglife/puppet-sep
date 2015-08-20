@@ -28,9 +28,9 @@ def sep_status
   hklm = Win32::Registry::HKEY_LOCAL_MACHINE
   hklm.open(sep_path + '\currentversion\public-opstate', KEY_READ | KEY64) do |reg|
     if reg['avrunningstatus'] == 1
-      status['service'] = 'enabled'
+      status['running'] = true
     else 
-      status['service'] = 'disabled'
+      status['running'] = false
     end
 
     definition_key = key_exists?(sep_path + '\currentversion\public-opstate', 'LatestVirusDefsDate')
